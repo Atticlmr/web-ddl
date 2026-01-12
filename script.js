@@ -20,6 +20,14 @@ const conferencesData = [
             "AI": "#667eea",
             "Top": "#e74c3c",
             "CCF-A": "#f39c12"
+        },
+        location: {
+            zh: "美国宾夕法尼亚州费城",
+            en: "Philadelphia, Pennsylvania, USA"
+        },
+        conferenceDate: {
+            zh: "2026年2月22日-3月1日",
+            en: "February 22 - March 1, 2026"
         }
     },
     {
@@ -42,6 +50,14 @@ const conferencesData = [
             "ML": "#27ae60",
             "Top": "#e74c3c",
             "CCF-A": "#f39c12"
+        },
+        location: {
+            zh: "芬兰赫尔辛基",
+            en: "Helsinki, Finland"
+        },
+        conferenceDate: {
+            zh: "2026年7月13日-19日",
+            en: "July 13-19, 2026"
         }
     },
     {
@@ -64,6 +80,14 @@ const conferencesData = [
             "ML": "#27ae60",
             "Top": "#e74c3c",
             "CCF-A": "#f39c12"
+        },
+        location: {
+            zh: "加拿大温哥华",
+            en: "Vancouver, Canada"
+        },
+        conferenceDate: {
+            zh: "2026年12月6日-12日",
+            en: "December 6-12, 2026"
         }
     },
     {
@@ -108,6 +132,14 @@ const conferencesData = [
             "CV": "#9b59b6",
             "Top": "#e74c3c",
             "CCF-A": "#f39c12"
+        },
+        location: {
+            zh: "美国田纳西州纳什维尔",
+            en: "Nashville, Tennessee, USA"
+        },
+        conferenceDate: {
+            zh: "2026年6月7日-13日",
+            en: "June 7-13, 2026"
         }
     },
     {
@@ -152,6 +184,14 @@ const conferencesData = [
             "Robotics": "#34495e",
             "Top": "#e74c3c",
             "CCF-A": "#f39c12"
+        },
+        location: {
+            zh: "日本东京",
+            en: "Tokyo, Japan"
+        },
+        conferenceDate: {
+            zh: "2026年5月17日-22日",
+            en: "May 17-22, 2026"
         }
     },
     {
@@ -182,8 +222,8 @@ const conferencesData = [
             en: "RSS 2026"
         },
         deadlines: {
-            abstract: "2026-01-23T23:59:59+12:00",
-            fullPaper: "2025-01-30T23:59:59+12:00"
+            // abstract: "2026-01-23T23:59:59+12:00",
+            fullPaper: "2026-01-30T23:59:59+12:00"
         },
         link: "https://roboticsconference.org",
         description: {
@@ -300,7 +340,9 @@ const translations = {
         search: "搜索:",
         searchPlaceholder: "搜索会议名称...",
         activeConferences: "未截止",
-        expiredConferences: "已截止"
+        expiredConferences: "已截止",
+        location: "举办地点",
+        conferenceDate: "会议时间"
     },
     en: {
         mainTitle: "Academic Conference Submission Deadlines",
@@ -340,7 +382,9 @@ const translations = {
         search: "Search:",
         searchPlaceholder: "Search conference name...",
         activeConferences: "Active",
-        expiredConferences: "Expired"
+        expiredConferences: "Expired",
+        location: "Location",
+        conferenceDate: "Conference Date"
     }
 };
 
@@ -611,40 +655,32 @@ function createConferenceElement(conference) {
     
     div.className = isExpired ? 'conference-item expired' : 'conference-item';
     
-    // 生成截止时间显示HTML（处理只有fullPaper或只有abstract的情况）
+    // 生成截止时间显示HTML（只显示一个截止时间，优先使用fullPaper）
     let deadlineHtml = '';
+    let deadlineToShow = null;
+    let deadlineLabel = '';
     
-    // 处理abstract截止时间（如果存在）
-    if (conference.deadlines.abstract) {
-        const abstractLocal = convertToTimezone(new Date(conference.deadlines.abstract), currentTimezone);
-        const abstractTimeDiff = convertToTimezone(new Date(conference.deadlines.abstract), 'Etc/GMT+12') - convertToTimezone(new Date(), 'Etc/GMT+12');
-        const abstractCountdownClass = abstractTimeDiff < 7 * 24 * 60 * 60 * 1000 ? 'urgent' :
-                                      abstractTimeDiff < 30 * 24 * 60 * 60 * 1000 ? 'warning' : 'normal';
-        
-        deadlineHtml += `
-            <div class="detail-item deadline-item">
-                <span class="detail-label">${translations[currentLang].abstract}:</span>
-                <span class="detail-value">${formatDateTime(abstractLocal, currentTimezone)}</span>
-                <span class="detail-value countdown ${abstractCountdownClass}" data-deadline="${conference.deadlines.abstract}">
-                    ${calculateCountdown(conference.deadlines.abstract)}
-                </span>
-            </div>
-        `;
+    // 优先使用fullPaper截止时间，如果没有则使用abstract截止时间
+    if (conference.deadlines.fullPaper) {
+        deadlineToShow = conference.deadlines.fullPaper;
+        deadlineLabel = translations[currentLang].fullPaper;
+    } else if (conference.deadlines.abstract) {
+        deadlineToShow = conference.deadlines.abstract;
+        deadlineLabel = translations[currentLang].abstract;
     }
     
-    // 处理fullPaper截止时间（如果存在）
-    if (conference.deadlines.fullPaper) {
-        const fullPaperLocal = convertToTimezone(new Date(conference.deadlines.fullPaper), currentTimezone);
-        const fullPaperTimeDiff = convertToTimezone(new Date(conference.deadlines.fullPaper), 'Etc/GMT+12') - convertToTimezone(new Date(), 'Etc/GMT+12');
-        const fullPaperCountdownClass = fullPaperTimeDiff < 7 * 24 * 60 * 60 * 1000 ? 'urgent' :
-                                       fullPaperTimeDiff < 30 * 24 * 60 * 60 * 1000 ? 'warning' : 'normal';
+    if (deadlineToShow) {
+        const deadlineLocal = convertToTimezone(new Date(deadlineToShow), currentTimezone);
+        const timeDiff = convertToTimezone(new Date(deadlineToShow), 'Etc/GMT+12') - convertToTimezone(new Date(), 'Etc/GMT+12');
+        const countdownClass = timeDiff < 7 * 24 * 60 * 60 * 1000 ? 'urgent' :
+                              timeDiff < 30 * 24 * 60 * 60 * 1000 ? 'warning' : 'normal';
         
-        deadlineHtml += `
+        deadlineHtml = `
             <div class="detail-item deadline-item">
-                <span class="detail-label">${translations[currentLang].fullPaper}:</span>
-                <span class="detail-value">${formatDateTime(fullPaperLocal, currentTimezone)}</span>
-                <span class="detail-value countdown ${fullPaperCountdownClass}" data-deadline="${conference.deadlines.fullPaper}">
-                    ${calculateCountdown(conference.deadlines.fullPaper)}
+                <span class="detail-label">${deadlineLabel}:</span>
+                <span class="detail-value">${formatDateTime(deadlineLocal, currentTimezone)}</span>
+                <span class="detail-value countdown ${countdownClass}" data-deadline="${deadlineToShow}">
+                    ${calculateCountdown(deadlineToShow)}
                 </span>
             </div>
         `;
@@ -666,21 +702,54 @@ function createConferenceElement(conference) {
         ).join('');
     }
 
+    // 生成Google地图链接
+    function getGoogleMapsLink(location) {
+        const encodedLocation = encodeURIComponent(location);
+        return `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;
+    }
+
+    // 生成地点和会议时间HTML（同一行两列布局）
+    let locationDateHtml = '';
+    if (conference.location && conference.conferenceDate) {
+        const mapsLink = getGoogleMapsLink(conference.location[currentLang]);
+        locationDateHtml = `
+            <div class="detail-item location-date-item">
+                <div class="location-column">
+                    <div class="location-column-content">
+                        <span class="detail-label">📍 ${translations[currentLang].location}:</span>
+                        <a href="${mapsLink}" target="_blank" class="location-link">
+                            <span class="detail-value">${conference.location[currentLang]}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="date-column">
+                    <div class="date-column-content">
+                        <span class="detail-label">📅 ${translations[currentLang].conferenceDate}:</span>
+                        <span class="detail-value">${conference.conferenceDate[currentLang]}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
     div.innerHTML = `
         <div class="conference-header">
             <h3 class="conference-name">${conference.name[currentLang]}</h3>
-            <div class="conference-tags">
-                ${tagsHtml}
-                ${categoriesHtml}
-            </div>
-            ${conference.link ? `<a href="${conference.link}" target="_blank" class="conference-link">${translations[currentLang].visitWebsite}</a>` : ''}
         </div>
-        <div class="conference-details">
+        <div class="conference-tags-row">
+            ${tagsHtml}
+        </div>
+        <div class="conference-categories-row">
+            ${categoriesHtml}
+        </div>
+        <div class="conference-deadline-row">
             ${deadlineHtml}
-            <div class="detail-item">
-                <span class="detail-label">${translations[currentLang].description}:</span>
-                <span class="detail-value">${conference.description[currentLang]}</span>
-            </div>
+        </div>
+        <div class="conference-location-date-row">
+            ${locationDateHtml}
+        </div>
+        <div class="conference-footer">
+            ${conference.link ? `<a href="${conference.link}" target="_blank" class="conference-link">${translations[currentLang].visitWebsite}</a>` : ''}
         </div>
     `;
 

@@ -151,6 +151,9 @@ body {
     padding: 25px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .conference-item:hover {
@@ -162,16 +165,47 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 15px;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.conference-tags {
+.conference-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+    flex: 1;
+}
+
+/* 新行布局样式 */
+.conference-tags-row {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
     align-items: center;
+    min-height: 28px;
+}
+
+.conference-categories-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 28px;
+}
+
+.conference-deadline-row {
+    margin: 5px 0;
+}
+
+.conference-location-date-row {
+    margin: 5px 0;
+}
+
+.conference-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
 }
 
 .conference-tag {
@@ -182,13 +216,6 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.conference-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin: 0;
 }
 
 .conference-category {
@@ -304,6 +331,230 @@ body {
     0% { opacity: 1; }
     50% { opacity: 0.7; }
     100% { opacity: 1; }
+}
+
+/* 举办地点和会议时间样式 */
+.location-item, .date-item {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.location-item:hover, .date-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: #667eea;
+}
+
+.location-item::before, .date-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+/* 地点和时间两列布局 */
+.location-date-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 地点列 */
+.location-column {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.location-column-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* 日期列 */
+.date-column {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.date-column-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* 地点链接样式 */
+.location-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.location-link:hover {
+    color: #667eea;
+}
+
+.location-link:hover .location-value {
+    color: #667eea;
+    text-decoration: underline;
+}
+
+.location-date-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: #667eea;
+}
+
+.location-date-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.location-icon, .date-icon {
+    font-size: 1.5rem;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-3px); }
+    60% { transform: translateY(-2px); }
+}
+
+.location-content, .date-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.location-item .detail-label, .date-item .detail-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.location-date-item .detail-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.location-value, .date-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.4;
+}
+
+/* 地点和时间项的特殊悬停效果 */
+.location-item:hover .location-icon {
+    animation: spin 0.5s ease-in-out;
+}
+
+.date-item:hover .date-icon {
+    animation: pulse 0.5s ease-in-out;
+}
+
+.location-date-item:hover .location-icon {
+    animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 响应式设计中的地点和时间样式 */
+@media (max-width: 768px) {
+    .location-item, .date-item, .location-date-item {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .location-icon, .date-icon {
+        font-size: 1.3rem;
+        min-width: 35px;
+        height: 35px;
+    }
+    
+    .location-value, .date-value {
+        font-size: 1rem;
+    }
+    
+    .conference-name {
+        font-size: 1.2rem;
+    }
+    
+    .conference-tags-row, .conference-categories-row {
+        gap: 6px;
+    }
+    
+    .conference-tag, .conference-category {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+    
+    /* 移动设备上的地点和时间两列布局变一列 */
+    .location-date-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .location-column, .date-column {
+        justify-content: flex-start;
+        text-align: left;
+    }
+    
+    .date-column-content, .date-column {
+        justify-content: flex-start;
+        text-align: left;
+    }
 }
 
 /* 已截止会议的样式 */
