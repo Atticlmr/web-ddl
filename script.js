@@ -52,11 +52,11 @@ const conferencesData = [
             "CCF-A": "#f39c12"
         },
         location: {
-            zh: "芬兰赫尔辛基",
-            en: "Helsinki, Finland"
+            zh: "首尔，韩国",
+            en: "Seoul, South Korea"
         },
         conferenceDate: {
-            zh: "2026年7月13日-19日",
+            zh: "2026年7月6日-11日",
             en: "July 13-19, 2026"
         }
     },
@@ -229,6 +229,14 @@ const conferencesData = [
         description: {
             zh: "机器人：科学与系统",
             en: "Robotics: Science and Systems"
+        },
+        location: {
+            zh: "悉尼， 澳大利亚",
+            en: "Sydney, Australia"
+        },
+        conferenceDate: {
+            zh: "2026年07月13日-07月17日",
+            en: "july 13 - july 17, 2026"
         },
         categories: ["robotics", "ai"]
     },
