@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 // GitHub Pages 仓库名称（如果是用户名.github.io 则留空）
-const base = process.env.GITHUB_PAGES === 'true' ? '/web-ddl/' : '/';
+const base = '/web-ddl/';
 
 export default defineConfig({
   base,
