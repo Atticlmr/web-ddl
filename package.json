@@ -1,0 +1,28 @@
+{
+  "name": "conf-deadlines",
+  "version": "2.0.0",
+  "description": "学术会议投稿截止时间展示网站",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js",
+    "format": "prettier --write \"src/**/*.{js,css,html}\""
+  },
+  "keywords": [
+    "conference",
+    "deadline",
+    "academic",
+    "vite"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vite-plugin-minify": "^1.5.2",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0"
+  },
+  "dependencies": {}
+}

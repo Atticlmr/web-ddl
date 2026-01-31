@@ -1,0 +1,88 @@
+/* ==================== CSS Variables - 蓝色主题 ==================== */
+:root {
+  /* Primary Blue Palette */
+  --primary-50: #e3f2fd;
+  --primary-100: #bbdefb;
+  --primary-200: #90caf9;
+  --primary-300: #64b5f6;
+  --primary-400: #42a5f5;
+  --primary-500: #2196f3;
+  --primary-600: #1e88e5;
+  --primary-700: #1976d2;
+  --primary-800: #1565c0;
+  --primary-900: #0d47a1;
+
+  /* Secondary Cyan Palette */
+  --cyan-300: #4dd0e1;
+  --cyan-400: #26c6da;
+  --cyan-500: #00bcd4;
+  --cyan-600: #00acc1;
+
+  /* Semantic Colors */
+  --primary: var(--primary-800);
+  --primary-light: var(--primary-500);
+  --primary-dark: var(--primary-900);
+  --accent: var(--cyan-500);
+
+  /* Gradients */
+  --primary-gradient: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-800) 50%, var(--primary-900) 100%);
+  --card-gradient: linear-gradient(145deg, #ffffff 0%, #f5f9ff 100%);
+  --hero-gradient: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 50%, var(--cyan-600) 100%);
+  --shimmer-gradient: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+
+  /* Status Colors */
+  --urgent: #f44336;
+  --urgent-light: #ffebee;
+  --warning: #ff9800;
+  --warning-light: #fff3e0;
+  --success: #4caf50;
+  --success-light: #e8f5e9;
+
+  /* Background Colors */
+  --bg-primary: #f0f5ff;
+  --bg-secondary: #e8f1ff;
+  --bg-card: #ffffff;
+  --bg-control: var(--primary-50);
+  --bg-hover: rgba(33, 150, 243, 0.04);
+
+  /* Text Colors */
+  --text-primary: #1a237e;
+  --text-secondary: #546e7a;
+  --text-muted: #78909c;
+  --text-white: #ffffff;
+
+  /* Border Colors */
+  --border: var(--primary-100);
+  --border-focus: var(--primary-300);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(13, 71, 161, 0.04);
+  --shadow-sm: 0 2px 8px rgba(13, 71, 161, 0.08);
+  --shadow-md: 0 4px 16px rgba(13, 71, 161, 0.12);
+  --shadow-lg: 0 8px 32px rgba(13, 71, 161, 0.16);
+  --shadow-xl: 0 12px 48px rgba(13, 71, 161, 0.2);
+  --shadow-glow: 0 0 20px rgba(33, 150, 243, 0.3);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Layout */
+  --container-max: 1280px;
+  --header-height: 80px;
+}

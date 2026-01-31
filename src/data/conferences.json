@@ -1,0 +1,126 @@
+[
+  {
+    "name": { "zh": "AAAI 2026", "en": "AAAI 2026" },
+    "link": "https://aaai.org",
+    "description": { "zh": "人工智能顶级会议", "en": "Top AI Conference" },
+    "categories": ["ai", "ml"],
+    "tags": ["AI", "Top", "CCF-A"],
+    "tagColors": { "AI": "#667eea", "Top": "#e74c3c", "CCF-A": "#f39c12" },
+    "location": { "zh": "美国宾夕法尼亚州费城", "en": "Philadelphia, Pennsylvania, USA" },
+    "date": { "zh": "2026年2月22日-3月1日", "en": "February 22 - March 1, 2026" },
+    "abstractDeadline": "2025-07-25T23:59:59",
+    "fullPaperDeadline": "2025-08-01T23:59:59"
+  },
+  {
+    "name": { "zh": "ICML 2026", "en": "ICML 2026" },
+    "link": "https://icml.cc",
+    "description": { "zh": "机器学习顶级会议", "en": "Top Machine Learning Conference" },
+    "categories": ["ml"],
+    "tags": ["ML", "Top", "CCF-A"],
+    "tagColors": { "ML": "#27ae60", "Top": "#e74c3c", "CCF-A": "#f39c12" },
+    "location": { "zh": "首尔，韩国", "en": "Seoul, South Korea" },
+    "date": { "zh": "2026年7月6日-11日", "en": "July 13-19, 2026" },
+    "abstractDeadline": "2026-01-23T23:59:59",
+    "fullPaperDeadline": "2026-01-28T23:59:59"
+  },
+  {
+    "name": { "zh": "NeurIPS 2026", "en": "NeurIPS 2026" },
+    "link": "https://neurips.cc",
+    "description": { "zh": "神经信息处理系统会议", "en": "Neural Information Processing Systems" },
+    "categories": ["ml"],
+    "tags": ["ML", "Top", "CCF-A"],
+    "tagColors": { "ML": "#27ae60", "Top": "#e74c3c", "CCF-A": "#f39c12" },
+    "location": { "zh": "加拿大温哥华", "en": "Vancouver, Canada" },
+    "date": { "zh": "2026年12月6日-12日", "en": "December 6-12, 2026" },
+    "abstractDeadline": "2024-10-08T23:59:59",
+    "fullPaperDeadline": "2024-10-15T23:59:59"
+  },
+  {
+    "name": { "zh": "ICLR 2026", "en": "ICLR 2026" },
+    "link": "https://iclr.cc",
+    "description": { "zh": "学习表征会议", "en": "International Conference on Learning Representations" },
+    "categories": ["ml"],
+    "tags": ["ML", "Top", "CCF-A"],
+    "tagColors": { "ML": "#27ae60", "Top": "#e74c3c", "CCF-A": "#f39c12" },
+    "abstractDeadline": "2025-09-19T23:59:59",
+    "fullPaperDeadline": "2025-09-24T23:59:59"
+  },
+  {
+    "name": { "zh": "CVPR 2026", "en": "CVPR 2026" },
+    "link": "https://cvpr.thecvf.com",
+    "description": { "zh": "计算机视觉与模式识别会议", "en": "Computer Vision and Pattern Recognition" },
+    "categories": ["cv", "ai", "ml"],
+    "tags": ["CV", "Top", "CCF-A"],
+    "tagColors": { "CV": "#9b59b6", "Top": "#e74c3c", "CCF-A": "#f39c12" },
+    "location": { "zh": "美国田纳西州纳什维尔", "en": "Nashville, Tennessee, USA" },
+    "date": { "zh": "2026年6月7日-13日", "en": "June 7-13, 2026" },
+    "abstractDeadline": "2025-11-07T23:59:59",
+    "fullPaperDeadline": "2025-11-13T23:59:59"
+  },
+  {
+    "name": { "zh": "ACL 2026", "en": "ACL 2026" },
+    "link": "https://aclweb.org",
+    "description": { "zh": "计算语言学协会年会", "en": "Association for Computational Linguistics" },
+    "categories": ["nlp", "ai"],
+    "tags": ["NLP", "Top", "CCF-A"],
+    "tagColors": { "NLP": "#e67e22", "Top": "#e74c3c", "CCF-A": "#f39c12" },
+    "fullPaperDeadline": "2026-01-05T23:59:59"
+  },
+  {
+    "name": { "zh": "ICRA 2026", "en": "ICRA 2026" },
+    "link": "https://2026.ieee-icra.org/",
+    "description": { "zh": "机器人与自动化国际会议", "en": "International Conference on Robotics and Automation" },
+    "categories": ["robotics", "ai", "control"],
+    "tags": ["Robotics", "Top", "CCF-A"],
+    "tagColors": { "Robotics": "#34495e", "Top": "#e74c3c", "CCF-A": "#f39c12" },
+    "location": { "zh": "日本东京", "en": "Tokyo, Japan" },
+    "date": { "zh": "2026年5月17日-22日", "en": "May 17-22, 2026" },
+    "fullPaperDeadline": "2025-09-16T07:59:59"
+  },
+  {
+    "name": { "zh": "IROS 2026", "en": "IROS 2026" },
+    "link": "https://2026.ieee-iros.org/",
+    "description": { "zh": "智能机器人与系统国际会议", "en": "International Conference on Intelligent Robots and Systems" },
+    "categories": ["robotics", "ai", "control"],
+    "tags": ["Robotics", "Top", "CCF-A"],
+    "tagColors": { "Robotics": "#34495e", "Top": "#e74c3c", "CCF-A": "#f39c12" },
+    "fullPaperDeadline": "2026-03-03T07:59:59"
+  },
+  {
+    "name": { "zh": "RSS 2026", "en": "RSS 2026" },
+    "link": "https://roboticsconference.org",
+    "description": { "zh": "机器人：科学与系统", "en": "Robotics: Science and Systems" },
+    "categories": ["robotics", "ai"],
+    "location": { "zh": "悉尼，澳大利亚", "en": "Sydney, Australia" },
+    "date": { "zh": "2026年07月13日-07月17日", "en": "July 13 - July 17, 2026" },
+    "fullPaperDeadline": "2026-01-30T23:59:59+12:00"
+  },
+  {
+    "name": { "zh": "CDC 2026", "en": "CDC 2026" },
+    "link": "https://cdc2026.ieeecss.org/",
+    "description": { "zh": "决策与控制会议", "en": "Conference on Decision and Control" },
+    "categories": ["control", "ai", "ml"],
+    "fullPaperDeadline": "2026-09-18T23:59:59+08:00"
+  },
+  {
+    "name": { "zh": "ACC 2026", "en": "ACC 2026" },
+    "link": "https://acc2026.a2c2.org/",
+    "description": { "zh": "美国控制会议", "en": "American Control Conference" },
+    "categories": ["control"],
+    "fullPaperDeadline": "2025-09-30T23:59:59+08:00"
+  },
+  {
+    "name": { "zh": "ECC 2026", "en": "ECC 2026" },
+    "link": "https://ecc26.euca-ecc.org/",
+    "description": { "zh": "欧洲控制会议", "en": "European Control Conference" },
+    "categories": ["control"],
+    "fullPaperDeadline": "2025-11-13T23:59:59+08:00"
+  },
+  {
+    "name": { "zh": "L4DC 2025", "en": "L4DC 2025" },
+    "link": "https://sites.google.com/usc.edu/l4dc2026/",
+    "description": { "zh": "动力学与控制中的机器学习", "en": "Learning for Dynamics & Control Conference" },
+    "categories": ["control", "ml"],
+    "fullPaperDeadline": "2025-10-30T23:59:59+12:00"
+  }
+]

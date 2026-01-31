@@ -1,95 +1,98 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学术会议投稿截止时间参考</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="学术会议投稿截止时间参考 - 汇集全球顶级学术会议投稿截止时间">
+  <meta name="theme-color" content="#1565C0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title data-i18n="mainTitle">学术会议投稿截止时间参考</title>
+  <script type="module" src="/src/js/main.js"></script>
 </head>
 <body>
-    <div class="container">
-        <!-- 声明 -->
-        <div class="disclaimer">
-            <p><strong>重要声明：</strong>投稿时间仅供参考，具体参照官网截止时间，如有错误请联系atticlmr@buaa.edu.cn</p>
-        </div>
-        
-        <!-- 主标题 -->
-        <h1 class="main-title" data-i18n="mainTitle">学术会议投稿截止时间参考</h1>
-        
-        <!-- 控制面板 -->
-        <div class="control-panel">
-            <div class="control-group">
-                <label for="timezoneSelect" data-i18n="timezone">时区:</label>
-                <select id="timezoneSelect">
-                    <option value="UTC">UTC</option>
-                    <option value="America/New_York">美国东部 (EST/EDT)</option>
-                    <option value="America/Los_Angeles">美国西部 (PST/PDT)</option>
-                    <option value="Europe/London">伦敦 (GMT/BST)</option>
-                    <option value="Europe/Paris">巴黎 (CET/CEST)</option>
-                    <option value="Asia/Tokyo">东京 (JST)</option>
-                    <option value="Asia/Shanghai" selected>北京/上海 (CST)</option>
-                    <option value="Asia/Singapore">新加坡 (SGT)</option>
-                </select>
-            </div>
-            
-            <div class="control-group">
-                <label for="categoryFilter" data-i18n="category">分类:</label>
-                <select id="categoryFilter">
-                    <option value="all" data-i18n="allCategories">全部分类</option>
-                    <option value="ai" data-i18n="artificialIntelligence">人工智能</option>
-                    <option value="robotics" data-i18n="robotics">机器人</option>
-                    <option value="ml" data-i18n="machineLearning">机器学习</option>
-                    <option value="cv" data-i18n="computerVision">计算机视觉</option>
-                    <option value="nlp" data-i18n="naturalLanguageProcessing">自然语言处理</option>
-                    <option value="control" data-i18n="control">控制与决策</option>
-                    <option value="general" data-i18n="general">综合类</option>
-                    <option value="active" data-i18n="activeConferences">未截止</option>
-                    <option value="expired" data-i18n="expiredConferences">已截止</option>
-                </select>
-            </div>
+  <div class="app-container">
+    <!-- 免责声明 -->
+    <aside class="disclaimer" role="alert">
+      <strong>⚠️ 重要声明：</strong>
+      投稿时间仅供参考，具体请以官网截止时间为准。如有错误请联系
+      <a href="mailto:atticlmr@buaa.edu.cn">atticlmr@buaa.edu.cn</a>
+    </aside>
 
-            <div class="control-group">
-                <label for="searchInput" data-i18n="search">搜索:</label>
-                <input type="text" id="searchInput" placeholder="搜索会议名称..." data-i18n-placeholder="searchPlaceholder">
-            </div>
+    <!-- 页头 -->
+    <header class="app-header">
+      <h1 data-i18n="mainTitle">学术会议投稿截止时间参考</h1>
+      <p class="subtitle" data-i18n="subtitle">汇集全球顶级学术会议，助您把握投稿时机</p>
+    </header>
 
-            <div class="control-group">
-                <label for="sortBy" data-i18n="sortBy">排序:</label>
-                <select id="sortBy">
-                    <option value="deadline" data-i18n="sortByDeadline">按截止时间</option>
-                    <option value="name" data-i18n="sortByName">按名称</option>
-                    <option value="category" data-i18n="sortByCategory">按分类</option>
-                </select>
-            </div>
+    <!-- 控制面板 -->
+    <nav class="controls" aria-label="筛选控制">
+      <div class="control-group">
+        <label for="timezoneSelect" data-i18n="timezone">时区</label>
+        <select id="timezoneSelect" class="form-select">
+          <option value="UTC">UTC</option>
+          <option value="America/New_York">美国东部 (EST/EDT)</option>
+          <option value="America/Los_Angeles">美国西部 (PST/PDT)</option>
+          <option value="Europe/London">伦敦 (GMT/BST)</option>
+          <option value="Europe/Paris">巴黎 (CET/CEST)</option>
+          <option value="Asia/Tokyo">东京 (JST)</option>
+          <option value="Asia/Shanghai" selected>北京/上海 (CST)</option>
+          <option value="Asia/Singapore">新加坡 (SGT)</option>
+        </select>
+      </div>
 
-            <div class="control-group">
-                <label for="sortOrder" data-i18n="sortOrder">顺序:</label>
-                <select id="sortOrder">
-                    <option value="asc" data-i18n="ascending">升序</option>
-                    <option value="desc" data-i18n="descending">降序</option>
-                </select>
-            </div>
+      <div class="control-group">
+        <label for="categoryFilter" data-i18n="category">分类</label>
+        <select id="categoryFilter" class="form-select">
+          <option value="all" data-i18n="allCategories">全部分类</option>
+          <option value="ai" data-i18n="ai">人工智能</option>
+          <option value="robotics" data-i18n="robotics">机器人</option>
+          <option value="ml" data-i18n="ml">机器学习</option>
+          <option value="cv" data-i18n="cv">计算机视觉</option>
+          <option value="nlp" data-i18n="nlp">自然语言处理</option>
+          <option value="control" data-i18n="control">控制与决策</option>
+          <option value="active" data-i18n="activeConferences">未截止</option>
+          <option value="expired" data-i18n="expiredConferences">已截止</option>
+        </select>
+      </div>
 
-            <div class="control-group">
-                <button id="langToggle" class="lang-btn" data-i18n="switchLang">切换英文</button>
-            </div>
-        </div>
+      <div class="control-group">
+        <label for="sortBy" data-i18n="sortBy">排序</label>
+        <select id="sortBy" class="form-select">
+          <option value="deadline" data-i18n="sortByDeadline">按截止时间</option>
+          <option value="name" data-i18n="sortByName">按名称</option>
+        </select>
+      </div>
 
-        <!-- 会议列表 -->
-        <div class="conferences-section">
-            <h2 data-i18n="conferencesList">会议列表</h2>
-            <div id="conferencesList" class="conferences-list">
-                <!-- 会议项目将通过JavaScript动态生成 -->
-            </div>
-        </div>
+      <div class="control-group">
+        <label for="searchInput" data-i18n="search">搜索</label>
+        <input
+          type="text"
+          id="searchInput"
+          class="form-input"
+          placeholder="搜索会议名称..."
+          data-i18n-placeholder="searchPlaceholder"
+        >
+      </div>
 
-        <!-- 说明文字 -->
-        <div class="info-section">
-            <p data-i18n="infoText">本页面提供主要学术会议的投稿截止时间参考，时间会根据所选时区自动调整。</p>
-            <p data-i18n="countdownInfo">倒计时显示距离截止时间的剩余时间，红色表示即将截止（少于7天）。</p>
-        </div>
-    </div>
+      <button id="langToggle" class="btn-lang" data-i18n="switchLang">Switch to English</button>
+    </nav>
 
-    <script src="script.js"></script>
+    <!-- 主内容区 -->
+    <main class="main-content">
+      <h2 data-i18n="conferencesList" class="section-title">会议列表</h2>
+      <div id="conferencesList" class="conferences-grid" role="list">
+        <!-- 动态生成 -->
+      </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p data-i18n="infoText">本页面提供主要学术会议的投稿截止时间参考，时间会根据所选时区自动调整。</p>
+        <p data-i18n="countdownInfo">倒计时显示距离截止时间的剩余时间</p>
+        <div id="footerLegend" class="footer-legend"></div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

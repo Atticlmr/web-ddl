@@ -1,0 +1,89 @@
+/* ==================== Responsive Styles ==================== */
+@media (max-width: 1024px) {
+  .conferences-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: var(--space-sm);
+  }
+
+  .app-header {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .app-header h1::before {
+    font-size: 1.4rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+    padding: var(--space-md);
+  }
+
+  .control-group {
+    justify-content: space-between;
+  }
+
+  .form-select,
+  .form-input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .main-content {
+    padding: var(--space-md);
+  }
+
+  .conferences-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .conference-card {
+    padding: var(--space-md);
+  }
+
+  .deadline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .deadline-countdown {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-legend {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .conf-name {
+    font-size: 1.1rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+  }
+
+  .btn-visit {
+    align-self: flex-start;
+  }
+}
