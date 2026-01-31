@@ -1,10 +1,54 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { resolve, join } from 'path';
+import { existsSync, readdirSync, mkdirSync, copyFileSync, statSync } from 'fs';
 
-// GitHub Pages 仓库名称（如果是用户名.github.io 则留空）
-const base = '/web-ddl/';
+// 使用相对路径，支持任意部署位置
+const base = '';
+
+/**
+ * 复制目录的递归函数
+ * @param {string} src - 源目录
+ * @param {string} dest - 目标目录
+ */
+function copyDirSync(src, dest) {
+  if (!existsSync(dest)) {
+    mkdirSync(dest, { recursive: true });
+  }
+  
+  const files = readdirSync(src);
+  for (const file of files) {
+    const srcPath = join(src, file);
+    const destPath = join(dest, file);
+    const stat = statSync(srcPath);
+    
+    if (stat.isDirectory()) {
+      copyDirSync(srcPath, destPath);
+    } else {
+      copyFileSync(srcPath, destPath);
+    }
+  }
+}
+
+/**
+ * Vite 插件：构建后复制 src/assets 到 dist
+ */
+function copyAssetsPlugin() {
+  return {
+    name: 'copy-assets',
+    closeBundle() {
+      const srcAssets = resolve(__dirname, 'src/assets');
+      const distAssets = resolve(__dirname, 'dist/assets');
+      
+      if (existsSync(srcAssets)) {
+        copyDirSync(srcAssets, distAssets);
+        console.log('✓ Assets copied to dist/assets');
+      }
+    }
+  };
+}
 
 export default defineConfig({
+  plugins: [copyAssetsPlugin()],
   base,
   root: '.',
   publicDir: 'public',
